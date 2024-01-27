@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
+    />
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <title>MQTT Group Chat</title>
+    <!-- <script src="scripts/paho-mqtt-min.js"></script> -->
+  </head>
+  <body>
+    <h1>Messenger by MQTT protocol</h1>
+
+    <div id="msg-view">
+      <!-- Put each individual message sent and received here -->
+    </div>
+
+    <div class="content">
+      <div class="side_bar"></div>
+      <div id="msg-sender">
+        <textarea
+          id="msg-text"
+          type="text"
+          placeholder="Type a message ..."
+          autocomplete="off"
+          autofocus
+          disabled
+        ></textarea>
+        <!-- Send message button -->
+        <button id="send-btn" onclick="sendMessage()">
+          <span>Send </span>
+        </button>
+      </div>
+    </div>
+    <!-- Text input field to type and send messages -->
+
+    <!-- Subscription/Publication Information -->
+    <div class="details" id="sub-topic">Subscribing to:</div>
+    <div class="details" id="pub-topic">Publishing to:</div>
+
+    <!-- Modal for configuring chat -->
+
+    <!-- Trigger/Open the modal -->
+    <button id="config-btn" class="small-btn">Configure Chat</button>
+
+    <!-- Banner showing which group the user is connected to -->
+    <div id="group-name"></div>
+
+    <!-- Config modal -->
+    <div id="configModal" class="modal">
+      <!-- Config modal content -->
+      <div class="modal-content">
+        <span id="configClose" class="close">&times;</span>
+        <h2 class="modal-title">Chat Configuration</h2>
+        <b>Nickname:</b>
+        <input id="nick" type="text" autocomplete="off" />
+        <br />
+        <br /><button id="submit-config">Done</button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+  </body>
+</html>
